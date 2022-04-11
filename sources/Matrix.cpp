@@ -14,7 +14,7 @@
 const int ZERO=0; // default value to the char's.
 const char c2=','; // c2 represent's the char ','.
 const int down=10; // ascii value of enter (used in the overload of the operator >>).
-const int flag=9;
+const int flag=7;
 /**
  * @brief convert a 1d array to 2d array (used in the overload of the operator *).
  * 
@@ -529,30 +529,19 @@ namespace zich{
         }
         std::vector<double> arr_cin = {1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1};
         Matrix mat_cin{arr_cin,3,4};
-        if(mat.temp==0)
-        {
+  
+        mat.temp++;  
+   
+        if(mat.temp>=flag){
             mat.mat=arr_cin;
             mat.col=4;
             mat.temp++;
             mat.row=3;
-        }else{
-            mat.temp++;
-            if(mat.temp>=flag)
-            {
-                mat.mat=arr_cin;
-                mat.col=4;
-                mat.temp++;
-                mat.row=3;
-            }
-            else{
-            throw invalid_argument{"Invalid"};
-            }
+
         }
-        
-
-    
-
-        
+        else{
+             throw invalid_argument{"Invalid"};
+        }
         
         return input;
     }
